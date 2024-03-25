@@ -4,7 +4,13 @@
   "workspaces": [
     "*"
   ],
+  "scripts": {
+    "relink": "rm -f node_modules/@pbg*/* && npm i -ws && ls node_modules/@pbg*",
+    "clean": "rm -rf */.built */dist",
+    "postclean": "npm run -ws --if-present postclean"
+  },
   "dependencies": {
+    "@sveltejs/adapter-auto": "3.1.1",
     "@sveltejs/adapter-static": "3.0.1",
     "@sveltejs/kit": "2.5.3",
     "@sveltejs/package": "2.3.0",
