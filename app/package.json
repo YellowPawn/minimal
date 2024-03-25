@@ -1,0 +1,18 @@
+{
+  "name": "@pbg.minimal/app",
+  "type": "module",
+  "scripts": {
+    "prepare": "svelte-kit sync",
+    "postclean": "svelte-kit sync || true",
+    "dev": "vite dev",
+    "build": "rm -rf ./dist && vite build"
+  },
+  "dependencies": {
+    "@pbg.minimal/components": "*"
+  },
+  "peerDependencies": {
+    "@sveltejs/kit": "*",
+    "svelte": "*",
+    "vite": "*"
+  }
+}

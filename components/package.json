@@ -1,0 +1,36 @@
+{
+  "name": "@pbg.minimal/components",
+  "type": "module",
+  "// exports 1": "This fully works, as long as svelte-package is run.",
+  "exports": {
+    "./*.js": {
+      "types": "./src/lib/*.ts",
+      "svelte": "./src/lib/*.ts"
+    },
+    "./*": {
+      "types": "./.built/dist/*.d.ts",
+      "svelte": "./src/lib/*"
+    }
+  },
+  "// exports 2": "This works for Vite, but not for VSCode.",
+  "// exports": {
+    "./*.js": {
+      "types": "./src/lib/*.ts",
+      "svelte": "./src/lib/*.ts"
+    },
+    "./*": {
+      "types": "./src/lib/*",
+      "svelte": "./src/lib/*"
+    }
+  },
+  "scripts": {
+    "prepare": "svelte-kit sync",
+    "postclean": "svelte-kit sync || true",
+    "build": "svelte-package -o .built/dist",
+    "watch": "svelte-package -w -o .built/dist"
+  },
+  "peerDependencies": {
+    "@sveltejs/kit": "*",
+    "svelte": "*"
+  }
+}
