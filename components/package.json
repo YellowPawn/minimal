@@ -26,8 +26,8 @@
   "scripts": {
     "prepare": "svelte-kit sync",
     "postclean": "svelte-kit sync || true",
-    "build": "svelte-package -o .built/dist",
-    "watch": "svelte-package -w -o .built/dist"
+    "dev": "svelte-package -w -o .built/dist",
+    "build": "svelte-package -o .built/dist"
   },
   "peerDependencies": {
     "@sveltejs/kit": "*",
