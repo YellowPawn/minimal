@@ -1,8 +1,12 @@
 {
-  "extends": ["../tsconfig.base.json", "./.built/tsconfig.json"],
+  "extends": [
+    "../tsconfig.base.json",
+    "./.built/tsconfig.json"
+  ],
   "compilerOptions": {
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "outDir": "./.built"
-  }
+  },
+  "references": []
 }

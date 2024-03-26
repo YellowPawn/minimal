@@ -1,5 +1,6 @@
 {
   "name": "@pbg.minimal/app",
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "prepare": "svelte-kit sync",

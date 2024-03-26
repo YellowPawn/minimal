@@ -1,5 +1,6 @@
 {
   "name": "@pbg.minimal/components",
+  "version": "0.0.0",
   "type": "module",
   "// exports 1": "This fully works, as long as svelte-package is run.",
   "exports": {
