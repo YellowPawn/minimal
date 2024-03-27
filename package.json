@@ -1,6 +1,5 @@
 {
   "name": "@pbg.minimal/root",
-  "type": "module",
   "workspaces": [
     "*"
   ],
