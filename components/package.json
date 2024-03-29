@@ -25,13 +25,12 @@
     }
   },
   "scripts": {
-    "prepare": "svelte-kit sync",
+    "prepare": "svelte-kit sync || true",
     "postclean": "svelte-kit sync || true",
     "dev": "svelte-package -w -o .built/dist",
     "build": "svelte-package -o .built/dist"
   },
   "peerDependencies": {
-    "@sveltejs/kit": "*",
-    "svelte": "*"
+    "@sveltejs/kit": "*"
   }
 }

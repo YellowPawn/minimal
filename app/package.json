@@ -3,17 +3,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "prepare": "svelte-kit sync",
+    "prepare": "svelte-kit sync || true",
     "postclean": "svelte-kit sync || true",
     "dev": "vite dev",
     "build": "rm -rf ./dist && vite build"
   },
-  "dependencies": {
-    "@pbg.minimal/components": "*"
-  },
   "peerDependencies": {
     "@sveltejs/kit": "*",
-    "svelte": "*",
     "vite": "*"
   }
 }
