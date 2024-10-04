@@ -11,5 +11,11 @@
   "peerDependencies": {
     "@sveltejs/kit": "*",
     "vite": "*"
+  },
+  "dependencies": {
+    "@sveltejs/kit": "2.5.18"
+  },
+  "devDependencies": {
+    "@pbg.minimal/components": "file:../components"
   }
 }
