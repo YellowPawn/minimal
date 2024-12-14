@@ -13,7 +13,7 @@
     "vite": "*"
   },
   "dependencies": {
-    "@sveltejs/kit": "2.8.1"
+    "@sveltejs/kit": "2.11.1"
   },
   "devDependencies": {
     "@pbg.minimal/components": "file:../components"
