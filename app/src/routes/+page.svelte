@@ -1,7 +1,7 @@
 <script lang="ts">
   import Thing1 from '$lib/Thing1.svelte';
   import Thing2 from '@pbg.minimal/components/Thing2.svelte';
-  import { Config } from '@pbg.minimal/components/util.js';
+  import { Config } from '@pbg.minimal/components/util.ts';
 </script>
 
 <div>
