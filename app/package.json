@@ -1,5 +1,5 @@
 {
-  "name": "@pbg.minimal/app",
+  "name": "@yp.minimal/app",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -16,6 +16,6 @@
     "@sveltejs/kit": "2.21.2"
   },
   "devDependencies": {
-    "@pbg.minimal/components": "file:../components"
+    "@yp.minimal/components": "file:../components"
   }
 }

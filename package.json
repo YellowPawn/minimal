@@ -1,10 +1,10 @@
 {
-  "name": "@pbg.minimal/root",
+  "name": "@yp.minimal/root",
   "workspaces": [
     "*"
   ],
   "scripts": {
-    "relink": "rm -f node_modules/@pbg*/* && npm i -ws && ls node_modules/@pbg*",
+    "relink": "rm -f node_modules/@yp*/* && npm i -ws && ls node_modules/@yp*",
     "clean": "rm -rf */.built */dist && npm run -ws --if-present postclean"
   },
   "// dependencies": {
