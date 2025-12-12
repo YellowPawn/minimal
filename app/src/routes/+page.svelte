@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Thing1 from '$lib/Thing1.svelte';
+  import Thing1 from '#lib/Thing1.svelte';
   import Thing2 from '@yp.minimal/components/Thing2.svelte';
   import { Config } from '@yp.minimal/components/util.ts';
 </script>
