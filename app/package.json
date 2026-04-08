@@ -12,9 +12,7 @@
     "vite": "*"
   },
   "dependencies": {
-    "@sveltejs/adapter-static": "3.0.10",
-    "@sveltejs/kit": "2.55.0",
-    "@sveltejs/vite-plugin-svelte": "7.0.0"
+    "@sveltejs/kit": "2.55.0"
   },
   "devDependencies": {
     "@yp.minimal/components": "file:../components"
