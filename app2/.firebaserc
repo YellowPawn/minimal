@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "PROJECT"
+  },
+  "targets": {
+    "PROJECT": {
+      "hosting": {
+        "app": [
+          "PROJECT"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

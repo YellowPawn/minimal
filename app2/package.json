@@ -1,0 +1,82 @@
+{
+  "name": "@yp.minimal/app2",
+  "version": "1.0.0",
+  "description": "Minimal Firebase + SvelteKit app",
+  "author": "Brian McBarron <brian@yellowpawn.llc> (https://yellowpawn.games)",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "// imports": "DNS: Ensure only server-side code can read from #pkg.",
+  "imports": {
+    "#lib/*.png": "./src/lib/*.png",
+    "#lib/*.svelte": "./src/lib/*.svelte",
+    "#lib/*.svg": "./src/lib/*.svg",
+    "#lib/*.ts": "./src/lib/*.ts",
+    "#pkg": "./package.json"
+  },
+  "config": {
+    "extends": "package.svelteapp.json",
+    "role": "app",
+    "config": "minimal",
+    "project": "PROJECT",
+    "service_account": "app-server@PROJECT.iam.gserviceaccount.com",
+    "auth_scopes": "firebase",
+    "region": "us-east1",
+    "target": "app",
+    "cli": "%/bin/cli.sh",
+    "fb_cli": "firebase -P %_project",
+    "attributions": [
+      "<a target=\"_blank\" href=\"https://icons8.com/icon/u3eLleSiSs6F/pawn\">Pawn</a> icon by <a target=\"_blank\" href=\"https://icons8.com\">Icons8</a>"
+    ]
+  },
+  "scripts": {
+    "auth:init": "sh expand.sh %_cli gcloud auth init --config=%_config --project=%_project --impersonate-sa=%_service_account %_auth_scopes",
+    "auth:perm": "sh expand.sh gcloud iam service-accounts add-iam-policy-binding %_service_account --member=user:brian@mcbarron.net --role=roles/iam.serviceAccountTokenCreator",
+    "preauth": "sh expand.sh gcloud config configurations activate %_config",
+    "auth": "sh expand.sh %_cli fb auth login",
+    "preunauth": "gcloud config configurations activate default && sh expand.sh gcloud config configurations delete %_config",
+    "unauth": "firebase logout",
+    "postclean": "sh expand.sh rm -rf .firebase/%_project && sh svelte_init.sh",
+    "postpostclean": " rm -f static/assets && sh expand.sh ENV_MSYS=winsymlinks:nativestrict ln -s ../../assets/public static/assets",
+    "dev": "vite --configLoader runner dev",
+    "dev.debug": "sh expand.sh ENV_NODE_OPTIONS=--inspect vite --configLoader runner dev",
+    "build": "rm -rf ./dist && vite --configLoader runner build",
+    "rules:build": "sh expand.sh %_cli fb rules.populate %./config/firestore.template.rules %@/src/lib/server/databases.ts",
+    "rules:deploy": "sh expand.sh %_fb_cli deploy --only firestore",
+    "deploy:rules": "sh run_all.sh rules:build rules:deploy",
+    "site:versionup": "sh version.sh",
+    "site:showversion": "sh -c \"echo $npm_package_version\"",
+    "site:canary": "sh expand.sh %_fb_cli hosting:channel:deploy canary --only %_target && echo || sh expand.sh echo See %./firebase-debug.log",
+    "site:prod": "sh expand.sh %_fb_cli deploy --only hosting:%_target && echo || sh expand.sh echo See %./firebase-debug.log",
+    "deploy:site:canary": "sh run_all.sh site:versionup site:canary site:showversion",
+    "deploy:site:canary-to-prod": "sh expand.sh %_fb_cli hosting:clone %_project:canary %_project:live",
+    "deploy:site:prod-unsafe": "sh run_all.sh site:versionup site:prod site:showversion"
+  },
+  "dependencies": {
+    "@firebase/util": "*",
+    "@google-cloud/error-reporting": "3.0.5",
+    "@google-cloud/secret-manager": "6.1.0",
+    "@sveltejs/kit": "2.55.0",
+    "@tailwindplus/elements": "1.0.22",
+    "esm-env": "1.2.2",
+    "firebase": "12.12.1",
+    "firebase-admin": "13.8.0",
+    "luxon": "3.7.2",
+    "svelte": "5.55.0",
+    "svelte-modals": "2.0.1",
+    "vite": "8.0.8"
+  },
+  "devDependencies": {
+    "@yp/common": "file:../../../packages/common/lib",
+    "@yp/node.apis.gcloud": "file:../../../packages/node/apis/gcloud",
+    "@yp/node.app": "file:../../../packages/node/app",
+    "@yp/node.core": "file:../../../packages/node/core",
+    "@yp/node.firebase": "file:../../../packages/node/firebase",
+    "@yp/util.app": "file:../../../packages/util/app",
+    "@yp/util.firebase": "file:../../../packages/util/firebase",
+    "@yp/util.svelte": "file:../../../packages/util/svelte",
+    "@yp/web.app": "file:../../../packages/web/app",
+    "@yp/web.config": "file:../../../packages/web/config",
+    "@yp/web.firebase": "file:../../../packages/web/firebase"
+  }
+}

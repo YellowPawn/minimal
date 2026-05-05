@@ -1,0 +1,11 @@
+{
+  "extends": [
+    "../../../tsconfig.base.json",
+    "./.built/tsconfig.json"
+  ],
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext"
+  },
+  "references": []
+}

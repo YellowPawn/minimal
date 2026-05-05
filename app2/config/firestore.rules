@@ -1,0 +1,32 @@
+// ATTENTION: This file is auto-generated, do not modify.
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSuperUser() {
+      return false;
+    }
+    
+    function isMyself(id) {
+      return isSuperUser() || request.auth.uid == id;
+    }
+
+    match /{document=**} {
+      allow read: if false;
+      allow write: if false;
+    }
+
+    // ||generated.rules||
+    
+    match /project/{id}/{document=**} {
+      allow read: if request.auth != null;
+      allow write: if isSuperUser();
+    }
+    
+    match /signIn/{id}/{document=**} {
+      allow read: if isSuperUser();
+      allow write: if isSuperUser();
+    }
+  }
+}

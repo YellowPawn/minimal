@@ -1,0 +1,22 @@
+{
+  "hosting": [
+    {
+      "// note": "This being a static or dynamic build must agree with svelte.config.js staticSite",
+      "target": "app",
+      "source": ".",
+      "ignore": [
+        "**/node_modules/**",
+        "**/.*",
+        "*.local",
+        "firebase.json"
+      ],
+      "frameworksBackend": {
+        "region": "us-east1",
+        "memory": "512MiB"
+      }
+    }
+  ],
+  "firestore": {
+    "rules": "config/firestore.rules"
+  }
+}

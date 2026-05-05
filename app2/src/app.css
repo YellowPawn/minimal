@@ -1,0 +1,29 @@
+@import 'tailwindcss';
+@source "../../../../packages/web/app/src";
+@source "../../../../packages/config/lib";
+@import '~@yp/web.config/lib/app/tailwind.css';
+
+/* TODO: Only hide this in Dev mode */
+/* .firebase-emulator-warning {
+  display: none;
+} */
+
+/* https://fonts.google.com/icons */
+.material-symbols {
+  font-family: 'Material Symbols Rounded';
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  font-size: 28px; /* Preferred icon size */
+  font-variation-settings:
+    'opsz' 28,
+    'wght' 200,
+    'FILL' 0,
+    'GRAD' 0;
+}

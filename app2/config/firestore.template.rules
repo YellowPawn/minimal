@@ -1,0 +1,20 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSuperUser() {
+      return false;
+    }
+    
+    function isMyself(id) {
+      return isSuperUser() || request.auth.uid == id;
+    }
+
+    match /{document=**} {
+      allow read: if false;
+      allow write: if false;
+    }
+
+    // ||generated.rules||
+  }
+}
