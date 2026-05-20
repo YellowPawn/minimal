@@ -12,7 +12,7 @@
   <h1 class="text-4xl font-meatball text-m-dp">Oh no, something went wrong!</h1>
   {#if page.error}
     <div class="my-4">
-      <div class="italic text-md">The error message was:</div>
+      <div class="italic text-base">The error message was:</div>
       <div class="font-bold">"{page.error.message}"</div>
     </div>
   {:else}
