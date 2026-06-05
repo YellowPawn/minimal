@@ -64,7 +64,7 @@
     "luxon": "3.7.2",
     "svelte": "5.55.0",
     "svelte-modals": "2.0.1",
-    "vite": "8.0.8"
+    "vite": "8.0.16"
   },
   "devDependencies": {
     "@yp/common": "file:../../../packages/common/lib",
