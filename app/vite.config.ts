@@ -1,10 +1,12 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import type { PluginOption, UserConfig } from 'vite';
+import { mergeConfig } from 'vite';
+import { defineConfig as defineVitestConfig } from 'vitest/config';
 
 const plugins: PluginOption[] = [];
 plugins.push(sveltekit());
 
-const Config: UserConfig = {
+const viteConfig: UserConfig = {
   plugins,
   cacheDir: '.built/vite',
   build: {
@@ -15,4 +17,10 @@ const Config: UserConfig = {
   },
 };
 
-export default Config;
+const vitestConfig = defineVitestConfig({
+  test: {
+    include: ['src/**/*.{test,spec}.{js,ts}'],
+  },
+});
+
+export default mergeConfig(viteConfig, vitestConfig);
