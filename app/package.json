@@ -12,7 +12,9 @@
     "vite": "*"
   },
   "dependencies": {
-    "@sveltejs/kit": "2.63.0"
+    "@sveltejs/kit": "2.63.0",
+    "vite": "8.0.16",
+    "vitest": "4.1.8"
   },
   "devDependencies": {
     "@yp.minimal/components": "*"
